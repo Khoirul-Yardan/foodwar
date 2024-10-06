@@ -56,3 +56,15 @@ window.addEventListener("scroll", function () {
     backTopBtn.classList.remove("active");
   }
 });
+
+function openSweetAlert(description) {
+  Swal.fire({
+    title: 'Detail Makanan',
+    text: description,
+    icon: 'info',
+    confirmButtonText: 'Tutup',
+    customClass: {
+      popup: 'animate__animated animate__fadeInDown'
+    }
+  });
+}

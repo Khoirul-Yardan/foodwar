@@ -19,6 +19,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&family=Roboto:wght@400;500;700&display=swap"
     rel="stylesheet">
+  <!-- SweetAlert2 CSS & JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body id="top">
@@ -42,16 +45,13 @@
           </li>
 
           <li>
-            <a href="#project" class="navbar-link" data-nav-link>Resep</a>
+            <a href="#project" class="navbar-link" data-nav-link>Makanan</a>
           </li>
 
           <li>
             <a href="#contact" class="navbar-link" data-nav-link>Contact</a>
           </li>
 
-          <li>
-            <a href="#" class="btn btn-primary">Get Started</a>
-          </li>
 
         </ul>
       </nav>
@@ -78,16 +78,13 @@
 
           <div class="hero-content">
 
-            <p class="hero-subtitle">nama kelompok</p>
+            <p class="hero-subtitle">Cegah alergi berkelanjutan</p>
 
-            <h1 class="h1 hero-title">Judul web</h1>
+            <h1 class="h1 hero-title">Cegah alergi untuk UMKM</h1>
 
             <p class="hero-text">
-              pengenalan singkat web.
+              aplikasi ini dibuat untuk mengurangi jumlah angka alergi pada daerah, pencegahan berkelanjutan terhadap alergi, dan untuk meningkatkan kepercayaan masyarakat
             </p>
-
-            <a href="#" class="btn btn-primary">Get Started</a>
-
           </div>
 
           <figure class="hero-banner">
@@ -109,7 +106,7 @@
           <h2 class="h2 section-title">Pelayanan</h2>
 
           <p class="section-text">
-            deskripsi singkat.
+            membantu konsumen/masyarakat untuk lebih teliti dalam memilih makanan demi pencegahan alergi yang berkelanjutan.
           </p>
 
           <ul class="grid-list">
@@ -126,7 +123,7 @@
                 </h3>
 
                 <p class="card-text">
-                  deskripsi.
+                  berisi tentang nilai gizi makanan 
                 </p>
 
               </div>
@@ -144,7 +141,7 @@
                 </h3>
 
                 <p class="card-text">
-                 deskripsi.
+                 berisikan detail bahan dan kandungan yang menyebabkan alergi.
                 </p>
 
               </div>
@@ -162,7 +159,7 @@
                 </h3>
 
                 <p class="card-text">
-                 deskripsi.
+                 dibuat agar mempermudah konsumen untuk mengetahui detail hanya dengan mengscan qrcode
                 </p>
 
               </div>
@@ -182,82 +179,59 @@
       <section class="section project" id="project" aria-label="project">
         <div class="container">
 
-          <h2 class="h2 section-title">resep</h2>
+          <h2 class="h2 section-title">Makanan</h2>
 
           <p class="section-text">
-           deskripsi singkat.
+           berisi makanan UMKM yang paling sering mencul di instansi.
           </p>
 
           <ul class="grid-list">
 
             <li>
               <div class="project-card">
-
                 <figure class="card-banner img-holder" style="--width: 510; --height: 700;">
-                  <img src="./assets/images/project-1.jpg" width="510" height="700" loading="lazy"
-                    alt="Designing a better cinema experience" class="img-cover">
+                  <img src="./assets/images/project-1.jpg" width="510" height="700" loading="lazy" alt="Deskripsi makanan" class="img-cover">
                 </figure>
-
                 <div class="card-content">
-
-                  <p class="card-subtitle">nama toko</p>
-
+                  <p class="card-subtitle">batagor cak malik</p>
                   <h3 class="h3">
-                    <a href="#" class="card-title">nama makanan</a>
+                    <a href="#" class="card-title">Batagor</a>
                   </h3>
-
-                  <a href="#" class="btn btn-primary">detail</a>
-
+                  <button class="btn btn-primary" onclick="openSweetAlert('makanan mengandung kacang, diharapkan agar tidak dikunsumsi bagi yg memiliki alergi kacang - kacangan')">Detail</button>
                 </div>
-
               </div>
             </li>
 
             <li>
               <div class="project-card">
-
                 <figure class="card-banner img-holder" style="--width: 510; --height: 700;">
-                  <img src="./assets/images/project-2.jpg" width="510" height="700" loading="lazy"
-                    alt="Building design process within teams" class="img-cover">
+                  <img src="./assets/images/cilor.webp" width="510" height="700" loading="lazy" alt="Deskripsi makanan" class="img-cover">
                 </figure>
-
                 <div class="card-content">
-
-                  <p class="card-subtitle">nama toko</p>
-
+                  <p class="card-subtitle">Cilor ibu sueb</p>
                   <h3 class="h3">
-                    <a href="#" class="card-title">nama makanan</a>
+                    <a href="#" class="card-title">Cilor</a>
                   </h3>
-
-                  <a href="#" class="btn btn-primary">detail</a>
-
+                  <button class="btn btn-primary" onclick="openSweetAlert('makanan mengandung kacang dan telur, diharapkan agar tidak dikunsumsi bagi yg memiliki alergi kacang - kacangan, dan telur')">Detail</button>
                 </div>
-
               </div>
             </li>
 
             <li>
               <div class="project-card">
-
                 <figure class="card-banner img-holder" style="--width: 510; --height: 700;">
-                  <img src="./assets/images/project-3.jpg" width="510" height="700" loading="lazy"
-                    alt="How intercom brings play into their design process" class="img-cover">
+                  <img src="./assets/images/pempek.jpeg" width="510" height="700" loading="lazy" alt="Deskripsi makanan" class="img-cover">
                 </figure>
-
                 <div class="card-content">
-
-                  <p class="card-subtitle">nama toko</p>
-
+                  <p class="card-subtitle">Pempek Malang</p>
                   <h3 class="h3">
-                    <a href="#" class="card-title">nama makanan</a>
+                    <a href="#" class="card-title">Pempek</a>
                   </h3>
-
-                  <a href="#" class="btn btn-primary">detail</a>
-
+                  <button class="btn btn-primary" onclick="openSweetAlert('makanan mengandung kacang, ikan, dan telur, diharapkan agar tidak dikunsumsi bagi yg memiliki alergi kacang - kacangan, telur, dan ikan')">Detail</button>
                 </div>
-
               </div>
             </li>
+
 
           </ul>
 
