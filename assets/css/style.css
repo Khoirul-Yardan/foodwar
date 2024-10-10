@@ -1077,3 +1077,54 @@ textarea.input-field {
   .contact-card .card-icon { padding: 15px; }
 
 }
+
+.tabel {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+td {
+  background-color: #fff;
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+  table {
+      width: 100%;
+  }
+
+  th, td {
+      padding: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  table {
+      font-size: 14px;
+  }
+
+  th, td {
+      padding: 8px;
+  }
+}

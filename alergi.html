@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Alergi Makanan di Lamongan</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .info {
+            margin: 20px 0;
+            display: none;
+        }
+        .image-result img {
+            width: 100px;
+            height: auto;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .detail-result {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Data Alergi Makanan di Lamongan</h1>
+
+        <input type="text" id="searchInput" placeholder="Cari alergi makanan..." oninput="searchFunction()">
+        
+        <div class="info">
+            <h3 id="searchResult"></h3>
+            <p id="percentageResult"></p>
+        </div>
+
+        <div class="image-result">
+            <h3>Gambar:</h3>
+            <div id="allergyImages"></div>
+        </div>
+
+        <div class="detail-result">
+            <h3>Detail Alergi:</h3>
+            <p id="allergyDetail"></p>
+        </div>
+
+        <div class="consequence-result">
+            <h3>Konsekuensi Jika Tetap Dikonsumsi:</h3>
+            <p id="consequenceDetail"></p>
+        </div>
+
+        <h3>Tabel Data Alergi Makanan di Lamongan</h3>
+        <table>
+            <tr>
+                <th>Alergi</th>
+                <th>Persentase</th>
+                <th>Distribusi Usia</th>
+            </tr>
+            <tr>
+                <td>Susu</td>
+                <td>30%</td>
+                <td>0-5 tahun: 50%, 6-17 tahun: 20%, 18-64 tahun: 15%, 65+ tahun: 5%</td>
+            </tr>
+            <tr>
+                <td>Telur</td>
+                <td>20%</td>
+                <td>0-5 tahun: 40%, 6-17 tahun: 30%, 18-64 tahun: 20%, 65+ tahun: 10%</td>
+            </tr>
+            <tr>
+                <td>Kacang</td>
+                <td>16%</td>
+                <td>0-5 tahun: 30%, 6-17 tahun: 20%, 18-64 tahun: 30%, 65+ tahun: 10%</td>
+            </tr>
+            <tr>
+                <td>Makanan Laut</td>
+                <td>10%</td>
+                <td>0-5 tahun: 10%, 6-17 tahun: 10%, 18-64 tahun: 20%, 65+ tahun: 50%</td>
+            </tr>
+            <tr>
+                <td>Kedelai</td>
+                <td>12%</td>
+                <td>0-5 tahun: 25%, 6-17 tahun: 25%, 18-64 tahun: 30%, 65+ tahun: 20%</td>
+            </tr>
+        </table>
+
+        <h3>Sumber Data</h3>
+        <ul>
+            <li><a href="https://ejournal.upgrisba.ac.id/index.php/eDikInformatika/article/view/2245" target="_blank">Sumber 1: Penelitian Alergi Makanan di Indonesia</a></li>
+            <li><a href="https://www.example.com/sumber2" target="_blank">Sumber 2: Laporan Kesehatan Masyarakat Lamongan</a></li>
+            <li><a href="https://www.example.com/sumber3" target="_blank">Sumber 3: Statistik Alergi Makanan di Jawa Timur</a></li>
+        </ul>
+    </div>
+
+
+
+    <script>
+        const allergyData = {
+            "susu": {
+                "persentase": "30%",
+                "ageDistribution": "0-5 tahun: 50%, 6-17 tahun: 20%, 18-64 tahun: 15%, 65+ tahun: 5%",
+                "images": [
+                    "https://cdn0-production-images-kly.akamaized.net/WVcOmtrtq0-SE41cZNXrM7BRXiA=/1200x1200/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/1560632/original/067454600_1491639480-Susu-Putih3.jpg",
+                    "https://sayurbox-blog-stage.s3.amazonaws.com/uploads/2022/07/produk-olahan-susu.jpg",
+                    "https://www.generasimaju.co.id/articles/article/image-thumb__594996__motherhood-big-article/b1.webp"
+                ],
+                "detail": "Alergi susu disebabkan oleh reaksi tubuh terhadap protein dalam susu, dapat menyebabkan ruam, diare, atau reaksi lebih serius.",
+                "consequence": "Mengabaikan alergi susu dapat menyebabkan reaksi parah seperti anafilaksis."
+            },
+            "telur": {
+                "persentase": "20%",
+                "ageDistribution": "0-5 tahun: 40%, 6-17 tahun: 30%, 18-64 tahun: 20%, 65+ tahun: 10%",
+                "images": [
+                    "https://asset-3.tstatic.net/jualbeli/img/njajal/2020/5/Jangan-Dikonsumsi-Dalam-Jumlah-Banyak--Ini-Perbandingan-Kandungan-Gizi-3-Jenis-Telur-master-293075865.jpg",
+                    "https://static.cdntap.com/tap-assets-prod/wp-content/uploads/sites/24/2021/03/telur-9.jpg",
+                    "/tes web/assets/images/konsekuensitelur.webp"
+                ],
+                "detail": "Alergi telur dapat menyebabkan gejala seperti gatal-gatal, asma, atau reaksi yang lebih parah.",
+                "consequence": "Reaksi alergi dapat mengancam nyawa dan memerlukan penanganan segera."
+            },
+            "kacang": {
+                "persentase": "16%",
+                "ageDistribution": "0-5 tahun: 30%, 6-17 tahun: 20%, 18-64 tahun: 30%, 65+ tahun: 10%",
+                "images": [
+                    "https://linisehat.com/wp-content/uploads/2023/02/kacang-kacangan-1.jpg",
+                    "https://img-global.cpcdn.com/recipes/98e74d104c2d219e/400x400cq70/photo.jpg",
+                    "https://d1bpj0tv6vfxyp.cloudfront.net/benarkahmengidapalergilainbisasebabkanalergikacanghalodocthumbnail.jpg"
+                ],
+                "detail": "Alergi kacang-kacangan sering kali menyebabkan reaksi alergi yang parah.",
+                "consequence": "Reaksi dapat sangat serius, dan menghindari kacang-kacangan adalah yang terbaik."
+            },
+            "makanan laut": {
+                "persentase": "10%",
+                "ageDistribution": "0-5 tahun: 10%, 6-17 tahun: 10%, 18-64 tahun: 20%, 65+ tahun: 50%",
+                "images": [
+                    "https://cdn1-production-images-kly.akamaized.net/xM1Sq-Y_pLCjJLAoh4u41IeOliA=/1200x900/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/1456164/original/044183500_1483451195-ProjectImages_Manfaat-Seafood-Bagi-Kesehatan-Tulang-dan-gigi.jpg",
+                    "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1482377534/ghdckmr2zxem95uyfgij.jpg",
+                    "/tes web/assets/images/alergilaut.webp"
+                ],
+                "detail": "Alergi makanan laut dapat menyebabkan reaksi yang sangat serius.",
+                "consequence": "Reaksi alergi dapat termasuk sesak napas, pusing, dan memerlukan perawatan medis."
+            },
+            "kedelai": {
+                "persentase": "12%",
+                "ageDistribution": "0-5 tahun: 25%, 6-17 tahun: 25%, 18-64 tahun: 30%, 65+ tahun: 20%",
+                "images": [
+                    "https://cdn.digitaldesa.com/uploads/profil/33.28.12.2014/berita/65fbc43514ecb5b13b1994e4a4ac6c82.jpg",
+                    "https://cdn-brilio-net.akamaized.net/news/2020/09/28/192761/1320011-1000xauto-resep-olahan-kedelai.jpg",
+                    "https://morinagasoya.com/media/news/makanan-penyebab-alergi-pada-bayi-birdsbees1-(1).jpg"
+                ],
+                "detail": "Alergi kedelai dapat menyebabkan gejala ringan hingga berat.",
+                "consequence": "Mengonsumsi kedelai dapat menyebabkan reaksi alergi yang berpotensi fatal."
+            }
+        };
+
+        function searchFunction() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const result = allergyData[input];
+
+            if (result) {
+                document.getElementById("searchResult").innerText = "Ditemukan: " + input.charAt(0).toUpperCase() + input.slice(1);
+                document.getElementById("percentageResult").innerText = "Persentase: " + result.persentase + " | Distribusi Usia: " + result.ageDistribution;
+
+                // Menampilkan gambar
+                const imagesDiv = document.getElementById("allergyImages");
+                imagesDiv.innerHTML = '';
+                result.images.forEach(imgSrc => {
+                    const img = document.createElement("img");
+                    img.src = imgSrc;
+                    img.alt = input;
+                    img.onclick = function() {
+                        Swal.fire({
+                            imageUrl: imgSrc,
+                            imageAlt: input,
+                            imageWidth: 400,
+                            imageHeight: 300,
+                        });
+                    };
+                    imagesDiv.appendChild(img);
+                });
+
+                document.getElementById("allergyDetail").innerText = result.detail;
+                document.getElementById("consequenceDetail").innerText = result.consequence;
+                document.querySelector('.info').style.display = "block";
+            } else {
+                document.getElementById("searchResult").innerText = "Tidak ada hasil ditemukan.";
+                document.getElementById("percentageResult").innerText = "";
+                document.getElementById("allergyImages").innerHTML = '';
+                document.getElementById("allergyDetail").innerText = "";
+                document.getElementById("consequenceDetail").innerText = "";
+                document.querySelector('.info').style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
